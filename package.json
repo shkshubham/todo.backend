@@ -8,7 +8,7 @@
   "keywords": [
     "feathers"
   ],
-  "author": {},
+  "author": "Shubham Shukla",
   "contributors": [],
   "bugs": {},
   "directories": {
@@ -22,11 +22,11 @@
   },
   "scripts": {
     "test": "npm run lint && npm run compile && npm run mocha",
-    "lint": "eslint src/. test/. --config .eslintrc.json --ext .ts --fix",
-    "dev": "ts-node-dev --no-notify src/",
+    "lint": "npx eslint src/. test/. --config .eslintrc.json --ext .ts --fix",
+    "dev": "npx ts-node-dev --no-notify src/",
     "start": "npm run compile && node lib/",
-    "mocha": "ts-mocha \"test/**/*.ts\" --recursive --exit",
-    "compile": "shx rm -rf lib/ && tsc"
+    "mocha": "npx ts-mocha \"test/**/*.ts\" --recursive --exit",
+    "compile": "npx shx rm -rf lib/ && npx tsc"
   },
   "standard": {
     "env": [
