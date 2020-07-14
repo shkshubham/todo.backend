@@ -4,23 +4,23 @@ import { HookContext } from '@feathersjs/feathers';
 
 
 // before: {
-  // create: [async (context: HookContext) => {
-  //   context.data.createdAt = new Date();
+// create: [async (context: HookContext) => {
+//   context.data.createdAt = new Date();
 
-  //   return context;
-  // }],
+//   return context;
+// }],
 
-  // update: [async (context: HookContext) => {
-  //   context.data.updatedAt = new Date();
+// update: [async (context: HookContext) => {
+//   context.data.updatedAt = new Date();
 
-  //   return context;
-  // }],
+//   return context;
+// }],
 
-  // patch: [async (context: HookContext) => {
-  //   context.data.updatedAt = new Date();
+// patch: [async (context: HookContext) => {
+//   context.data.updatedAt = new Date();
     
-  //   return context;
-  // }]
+//   return context;
+// }]
 // },
 
 function setUpdatedAt(context: HookContext) {
@@ -32,7 +32,7 @@ export default {
     all: [],
     find: [
       (context: HookContext) => {
-        const { query } = context.params
+        const { query } = context.params;
         if (query && typeof query.completed === 'string') {
           query.completed = (query.completed === 'true');
         }
@@ -44,7 +44,7 @@ export default {
       validate.form(createSchema, joiOptions),
       (context: HookContext) => {
         context.data.createdAt = new Date();
-        setUpdatedAt(context)
+        setUpdatedAt(context);
         return context;
       }
 
@@ -52,7 +52,7 @@ export default {
     update: [
       validate.form(updateSchema, joiOptions),
       (context: HookContext) => {
-        setUpdatedAt(context)
+        setUpdatedAt(context);
         return context;
       }
     ],
